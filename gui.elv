@@ -37,7 +37,7 @@ fn setup-sddm {
     sudo systemctl enable sddm
     
     # Set Theme
-    if ?(! test -d /usr/share/sddm/themes/slice) {
+    if (not ?(test -d /usr/share/sddm/themes/slice)) {
        temp-dir = (mktemp -d)
         cd $temp-dir
         git clone https://github.com/RadRussianRus/sddm-slice.git
