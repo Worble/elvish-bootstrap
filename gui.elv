@@ -16,8 +16,8 @@ fn setup-lxqt {
     func:tty-echo "Installing LXQt"
     yay -S $@packages-qt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
-    sudo systemctl stop NetworkManager
-    sudo systemctl disable NetworkManager
+    error = ?(sudo systemctl stop NetworkManager)
+    error = ?(sudo systemctl disable NetworkManager)
     sudo systemctl enable connman
     sudo systemctl start connman
 
