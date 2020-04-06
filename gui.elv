@@ -4,7 +4,7 @@ use str
 
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
-packages-qt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme ]
+packages-qt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme wpa_supplicant ]
 
 # Funcs
 fn setup-plasma {
@@ -14,12 +14,14 @@ fn setup-plasma {
 
 fn setup-lxqt {
     func:tty-echo "Installing LXQt"
-    yay -S $@packages-qt $@packages-shared --noconfirm --needed --quiet
+    yay -S $@packages-qt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     sudo systemctl stop NetworkManager
     sudo systemctl disable NetworkManager
     sudo systemctl enable connman
     sudo systemctl start connman
+
+    connmanctl enable wifi
 
     use ./lxqt/panel
     use ./lxqt/config
