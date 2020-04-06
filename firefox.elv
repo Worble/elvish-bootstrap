@@ -47,4 +47,4 @@ echo '{
       "Locked": false
     }
   }
-}' > sudo tee /usr/lib/firefox/distribution
+}' > sudo tee /usr/lib/firefox/distribution/policies.json
