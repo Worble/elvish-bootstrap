@@ -143,7 +143,7 @@ for lang $langs-to-install {
     if (==s $lang "rust") {
         rustup install stable
         rustup default stable
-        rustup component add rls rust-analysis rust-src rustfmt clippy --force
+        rustup component add rls rust-analysis rust-src rustfmt clippy
     }
 }
 
