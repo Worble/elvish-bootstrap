@@ -101,7 +101,7 @@ if (put $setup-programming-langs) {
         for lang $langs {
             text = (echo "Install" $lang"? y/N")
             add-lang = (func:y-n-loop $text "N")
-            if ($add-lang) {
+            if (put $add-lang) {
                 langs-to-install = [ $@langs-to-install $lang ]
             }
         }
