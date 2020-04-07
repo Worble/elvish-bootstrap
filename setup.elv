@@ -2,7 +2,7 @@
 use ./functions/shared func
 
 # Declare Vars
-packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils ]
+packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
 packages-extra = [ nextcloud-client vscodium-bin ]
 
@@ -69,6 +69,8 @@ if (put $install-extra) {
         }
     }
     packages-extra = $packages-extra-new
+} else {
+    packages-extra = []
 }
 
 # Bluetooth
@@ -130,5 +132,12 @@ tscale=oversample' > ~/.config/mpv/mpv.conf
 
 # vscodium
 # TODO
+
+# Elvish
+echo "Setting up Elvish"
+use epm
+epm:install github.com/muesli/elvish-libs
+mkdir -d ~/.elvish
+echo 'use github.com/muesli/elvish-libs/theme/powerline' > ~/.elvish/rc.elv
 
 chsh --shell /bin/elvish
