@@ -81,6 +81,9 @@ if (put $choose) {
     packages-base = [ $@packages-base $@packages-bluetooth ]
 }
 
+# Vapoursynth 
+# TODO
+
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
 
 # Ufw
@@ -127,3 +130,5 @@ tscale=oversample' > ~/.config/mpv/mpv.conf
 
 # vscodium
 # TODO
+
+chsh --shell /bin/elvish

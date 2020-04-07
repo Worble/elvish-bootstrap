@@ -4,8 +4,8 @@ use str
 
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
-packages-qt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme wpa_supplicant ]
-packages-plasma [ plasma-meta ]
+packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme wpa_supplicant redshift-qt ]
+packages-plasma = [ plasma-meta ]
 
 # Funcs
 fn setup-plasma {
@@ -21,7 +21,7 @@ fn setup-plasma {
 
 fn setup-lxqt {
     func:tty-echo "Installing LXQt"
-    yay -S $@packages-qt $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     error = ?(sudo systemctl stop NetworkManager)
     error = ?(sudo systemctl disable NetworkManager)
