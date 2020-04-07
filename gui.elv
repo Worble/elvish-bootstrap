@@ -36,6 +36,7 @@ fn setup-lxqt {
     use ./lxqt/notifications
     use ./lxqt/pcmanfm
     use ./lxqt/globalkeyshortcuts
+    use ./lxqt/autostart
 }
 
 fn setup-sddm {
