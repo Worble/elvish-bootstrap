@@ -12,7 +12,7 @@ install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
 # Gui
 if (put $install-gui) {
     use ./gui gui
-    $chosen-gui = (gui:setup)
+    chosen-gui = (gui:setup)
 }
 
 # Optional Packages
