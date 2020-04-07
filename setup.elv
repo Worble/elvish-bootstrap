@@ -116,7 +116,7 @@ if (put $setup-programming-langs) {
 for lang $langs-to-install {
     if (==s $lang "node") {
         packages-base = [ $@packages-base nodejs yarn npm ]
-        mkdir ~/.npm-packages
+        mkdir -p ~/.npm-packages
         echo 'prefix=${HOME}/.npm-packages' > ~/.npmrc        
     }
     if (==s $lang "chsarp") {
@@ -201,7 +201,7 @@ for package $packages-extra {
 echo "Setting up Elvish"
 use epm
 epm:install github.com/muesli/elvish-libs
-mkdir -d ~/.elvish
+mkdir -p ~/.elvish
 echo 'use github.com/muesli/elvish-libs/theme/powerline' > ~/.elvish/rc.elv
 for lang $langs-to-install {
     if (==s $lang "node") {
