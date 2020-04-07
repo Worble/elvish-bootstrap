@@ -114,21 +114,21 @@ if ($setup-programming-langs) {
 
 for lang $langs-to-install {
     if (==s $lang "node") {
-        packages-base = [ $@$@packages-base nodejs yarn npm ]
+        packages-base = [ $@packages-base nodejs yarn npm ]
         mkdir ~/.npm-packages
         echo 'prefix=${HOME}/.npm-packages' > ~/.npmrc        
     }
     if (==s $lang "chsarp") {
-        packages-base = [ $@$@packages-base dotnet-sdk ]
+        packages-base = [ $@packages-base dotnet-sdk ]
     }
     if (==s $lang "rust") {
-        packages-base = [ $@$@packages-base rustup ]
+        packages-base = [ $@packages-base rustup ]
     }
     if (==s $lang "python") {
-        packages-base = [ $@$@packages-base python python-pip  ]
+        packages-base = [ $@packages-base python python-pip  ]
     }
     if (==s $lang "java") {
-        packages-base = [ $@$@packages-base jre-openjdk ]
+        packages-base = [ $@packages-base jre-openjdk ]
     }
 }
 
