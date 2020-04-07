@@ -2,7 +2,7 @@
 use ./functions/shared func
 
 # Declare Vars
-packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate ]
+packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
 packages-extra = [ nextcloud-client vscodium-bin ]
 
@@ -73,7 +73,7 @@ if (put $install-extra) {
 # Bluetooth
 choose = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
 if (put $choose) {
-    packages-base = [ $@packages-base blueman ]
+    packages-base = [ $@packages-base blueman pulseaudio-bluetooth ]
 }
 
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
