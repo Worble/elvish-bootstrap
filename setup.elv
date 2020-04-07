@@ -2,7 +2,7 @@
 use ./functions/shared func
 
 # Declare Vars
-packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa ]
+packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
 packages-extra = [ nextcloud-client vscodium-bin ]
 
@@ -11,7 +11,8 @@ install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
 
 # Gui
 if (put $install-gui) {
-    use ./gui
+    use ./gui gui
+    $chosen-gui = (gui:setup)
 }
 
 # Optional Packages
@@ -73,7 +74,11 @@ if (put $install-extra) {
 # Bluetooth
 choose = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
 if (put $choose) {
-    packages-base = [ $@packages-base blueman pulseaudio-bluetooth ]
+    packages-bluetooth = [ pulseaudio-bluetooth ]
+    if (==s $chosen-gui "lxqt") {
+        packages-bluetooth = [ $@packages-bluetooth blueman ]
+    }
+    packages-base = [ $@packages-base $@packages-bluetooth ]
 }
 
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar

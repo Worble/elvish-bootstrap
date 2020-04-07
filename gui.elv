@@ -5,11 +5,18 @@ use str
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
 packages-qt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme wpa_supplicant ]
+packages-plasma [ plasma-meta ]
 
 # Funcs
 fn setup-plasma {
     func:tty-echo "Installing Plasma"
     func:tty-echo "TODO: Plasma install"
+    yay -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
+
+    error = ?(sudo systemctl stop connman)
+    error = ?(sudo systemctl disable connman)
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManager
 }
 
 fn setup-lxqt {
@@ -58,12 +65,13 @@ fn get-xorg-driver {
         drivers = [ xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau nvidia nvidia-390xx "None (Install Later)"]
         func:tty-echo (echo "Drivers:" $@drivers)
         input = (func:read-input "")
-        if (or (==s (str:to-lower $input) "none") (==s (str:to-lower $input) "none (install later)")) {
+        input = (str:to-lower $input)
+        if (or (==s $input "none") (==s $input "none (install later)")) {
             put ""
             return
         }
         for driver $drivers {
-            if (==s (str:to-lower $input) $driver) {
+            if (==s $input $driver) {
                 put $input
                 return
             }
@@ -72,25 +80,30 @@ fn get-xorg-driver {
     }
 }
 
-# Begin Script
-driver = (get-xorg-driver)
-if ?( ! ==s $driver "") {
-    packages-shared = [ $@packages-shared $driver ]
-}
-
-loop = $true
-while $loop {
-    func:tty-echo "Which GUI to install? [LXQt Plasma]"
-    input = (func:read-input "")
-    if (==s (str:to-lower $input) "lxqt") {        
-        setup-lxqt
-        loop = $false
-    } elif (==s (str:to-lower $input) "plasma") {
-        setup-plasma
-        loop = $false
-    } else {
-        func:tty-echo "Please respond LXQt or Plasma"
+fn setup {
+    driver = (get-xorg-driver)
+    if ?( ! ==s $driver "") {
+        packages-shared = [ $@packages-shared $driver ]
     }
-}
 
-setup-sddm
+    loop = $true
+    while $loop {
+        func:tty-echo "Which GUI to install? [LXQt Plasma]"
+        input = (func:read-input "")
+        input = (str:to-lower $input)
+        if (==s $input "lxqt") {   
+            put $input     
+            setup-lxqt
+            loop = $false
+        } elif (==s $input "plasma") {
+            put $input
+            setup-plasma
+            loop = $false
+        } else {
+            func:tty-echo "Please respond LXQt or Plasma"
+        }
+    }
+
+    setup-sddm    
+    return
+}

@@ -17,10 +17,11 @@ fn y-n-loop [question default]{
     while $true {
         tty-echo $question
         input = (read-input $default)
-        if (==s (str:to-lower $input) "y") {
+        input = (str:to-lower $input)
+        if (==s $input "y") {
             put $true
             return
-        } elif (==s (str:to-lower $input) "n") {
+        } elif (==s $input "n") {
             put $false
             return
         } else {
