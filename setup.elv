@@ -93,7 +93,7 @@ if (put $install-japanese-ime) {
 # Development
 setup-programming-langs = (func:y-n-loop "Setup programming languages? y/N" "N")
 langs-to-install = []
-if ($setup-programming-langs) {
+if (put $setup-programming-langs) {
     langs = [ node csharp rust python java ]
     loop = $true
     while $loop {
