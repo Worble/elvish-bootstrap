@@ -173,7 +173,6 @@ use ./firefox
 for package $packages-optional {
     if (==s $package "mpv") {
         echo "Setting up mpv"
-        echo "Install high quality mpv config? (requires a beefy GPU) y/N"
         high-quality-mpv = (func:y-n-loop "Install high quality mpv config? (requires a beefy GPU) y/N" "N")
         if (put $high-quality-mpv) {
             mkdir -p ~/.config/mpv
@@ -190,6 +189,7 @@ tscale=oversample' > ~/.config/mpv/mpv.conf
 # Packages Extra Setup
 
 # VSCodium
+echo "Setting up vscodium"
 for package $packages-extra {
     if (==s $package "vscodium-bin") {
         use ./vscodium vscode
