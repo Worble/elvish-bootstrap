@@ -83,10 +83,68 @@ if (put $choose) {
     packages-base = [ $@packages-base $@packages-bluetooth ]
 }
 
+# Japanese IME
+install-japanese-ime = (func:y-n-loop "Install Japanese IME? y/N" "N")
+if (put $install-japanese-ime) {
+    packages-base = [ $@packages-base fcitx-mozc ]
+}
+
+# Development
+setup-programming-langs = (func:y-n-loop "Setup programming languages? y/N" "N")
+langs-to-install = []
+if ($setup-programming-langs) {
+    langs = [ node csharp rust python java ]
+    loop = $true
+    while $loop {
+        langs-to-install = []
+        for lang $langs {
+            text = (echo "Install" $lang"? y/N")
+            add-lang = (func:y-n-loop $text "N")
+            if ($add-lang) {
+                langs-to-install = [ $@langs-to-install $lang ]
+            }
+        }
+        echo "Installing:" $@langs-to-install
+        breakLoop = (func:y-n-loop "Is this ok? Y/n" "Y")
+        if (put $breakLoop) {
+            loop = $false
+        }
+    }
+}
+
+for lang $langs-to-install {
+    if (==s $lang "node") {
+        packages-base = [ $@$@packages-base nodejs yarn npm ]
+        mkdir ~/.npm-packages
+        echo 'prefix=${HOME}/.npm-packages' > ~/.npmrc        
+    }
+    if (==s $lang "chsarp") {
+        packages-base = [ $@$@packages-base dotnet-sdk ]
+    }
+    if (==s $lang "rust") {
+        packages-base = [ $@$@packages-base rustup ]
+    }
+    if (==s $lang "python") {
+        packages-base = [ $@$@packages-base python python-pip  ]
+    }
+    if (==s $lang "java") {
+        packages-base = [ $@$@packages-base jre-openjdk ]
+    }
+}
+
 # Vapoursynth 
 # TODO
 
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
+
+# Rust
+for lang $langs-to-install {
+    if (==s $lang "rust") {
+        rustup install stable
+        rustup default stable
+        rustup component add rls rust-analysis rust-src rustfmt clippy --force
+    }
+}
 
 # Ufw
 echo "Setting up UFW"
@@ -111,9 +169,9 @@ use ./firefox
 # Packages Optional Setup
 
 # mpv
-echo "Setting up mpv"
 for package $packages-optional {
     if (==s $package "mpv") {
+        echo "Setting up mpv"
         echo "Install high quality mpv config? (requires a beefy GPU) y/N"
         high-quality-mpv = (func:y-n-loop "Install high quality mpv config? (requires a beefy GPU) y/N" "N")
         if (put $high-quality-mpv) {
@@ -130,8 +188,13 @@ tscale=oversample' > ~/.config/mpv/mpv.conf
 
 # Packages Extra Setup
 
-# vscodium
-# TODO
+# VSCodium
+for package $packages-extra {
+    if (==s $package "vscodium-bin") {
+        use ./vscodium vscode
+        vscode:setup $langs-to-install
+    }
+}
 
 # Elvish
 echo "Setting up Elvish"
@@ -139,5 +202,12 @@ use epm
 epm:install github.com/muesli/elvish-libs
 mkdir -d ~/.elvish
 echo 'use github.com/muesli/elvish-libs/theme/powerline' > ~/.elvish/rc.elv
+for lang $langs-to-install {
+    if (==s $lang "node") {
+        echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
+E:MANPATH=$E:HOME"/.npm-packages/share/man":(manpath)' >> ~/.elvish/rc.elv
+    }
+}
+
 
 chsh --shell /bin/elvish
