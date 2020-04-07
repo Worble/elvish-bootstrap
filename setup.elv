@@ -10,6 +10,7 @@ packages-extra = [ nextcloud-client vscodium-bin ]
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
 
 # Gui
+chosen-gui = ""
 if (put $install-gui) {
     use ./gui gui
     chosen-gui = (gui:setup)
