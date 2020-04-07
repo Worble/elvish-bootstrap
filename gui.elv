@@ -93,17 +93,17 @@ fn setup {
         input = (str:to-lower $input)
         if (==s $input "lxqt") {   
             put $input     
-            setup-lxqt
+            setup-lxqt > /dev/tty
             loop = $false
         } elif (==s $input "plasma") {
             put $input
-            setup-plasma
+            setup-plasma > /dev/tty
             loop = $false
         } else {
             func:tty-echo "Please respond LXQt or Plasma"
         }
     }
 
-    setup-sddm    
+    setup-sddm > /dev/tty
     return
 }
