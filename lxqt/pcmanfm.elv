@@ -68,7 +68,7 @@ searchRecursive=false
 searchhHidden=false
 
 [System]
-Archiver=file-roller
+Archiver=ark
 FallbackIconThemeName=oxygen
 OnlyUserTemplates=false
 SIUnit=false

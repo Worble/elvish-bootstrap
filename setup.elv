@@ -2,9 +2,9 @@
 use ./functions/shared func
 
 # Declare Vars
-packages-base = [ base-devel gvfs xarchiver alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
+packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
-packages-extra = [ nextcloud-client vscodium-bin ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
