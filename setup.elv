@@ -4,7 +4,7 @@ use ./functions/shared func
 # Declare Vars
 packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
@@ -77,7 +77,7 @@ if (put $install-extra) {
 # Bluetooth
 choose = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
 if (put $choose) {
-    packages-bluetooth = [ pulseaudio-bluetooth ]
+    packages-bluetooth = [ pulseaudio-bluetooth bluez ]
     if (==s $chosen-gui "lxqt") {
         packages-bluetooth = [ $@packages-bluetooth blueman ]
     }

@@ -10,13 +10,14 @@ packages-plasma = [ plasma-meta ]
 # Funcs
 fn setup-plasma {
     func:tty-echo "Installing Plasma"
-    func:tty-echo "TODO: Plasma install"
     yay -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     error = ?(sudo systemctl stop connman)
     error = ?(sudo systemctl disable connman)
     sudo systemctl enable NetworkManager
     sudo systemctl start NetworkManager
+
+    # TODO: plasma customisations
 }
 
 fn setup-lxqt {
