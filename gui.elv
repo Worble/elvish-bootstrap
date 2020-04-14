@@ -5,7 +5,7 @@ use str
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
 packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors lxqt-connman-applet sddm-config-editor-git adwaita-icon-theme wpa_supplicant redshift-qt ]
-packages-plasma = [ plasma-meta ]
+packages-plasma = [ plasma-meta dolphin ]
 
 # Funcs
 fn setup-plasma {
@@ -38,6 +38,7 @@ fn setup-lxqt {
     use ./lxqt/pcmanfm
     use ./lxqt/globalkeyshortcuts
     use ./lxqt/autostart
+    use ./lxqt/xscreensaver
 }
 
 fn setup-sddm {

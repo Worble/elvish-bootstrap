@@ -4,7 +4,7 @@ use ./functions/shared func
 # Declare Vars
 packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
 packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge gimp libreoffice-fresh ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
@@ -19,7 +19,7 @@ if (put $install-gui) {
 # Optional Packages
 echo "Optional packages:" $@packages-optional
 install-optional = (func:y-n-loop "Install all optional packages? Y/n" "Y")
-if (eq $install-optional $false) {    
+if (eq $install-optional $false) {
     packages-optional-new = []
     choose = (func:y-n-loop "Choose optional packages? Y/n" "Y")
     if (put $choose) {
@@ -32,7 +32,7 @@ if (eq $install-optional $false) {
                 if (put $install-package) {
                     packages-optional-new = [ $@packages-optional-new $package ]
                 }
-            }        
+            }
             echo "Installing: " $@packages-optional-new
             breakLoop = (func:y-n-loop "Is this ok? Y/n" "Y")
             if (put $breakLoop) {
@@ -40,7 +40,7 @@ if (eq $install-optional $false) {
             }
         }
     }
-    packages-optional = $packages-optional-new    
+    packages-optional = $packages-optional-new
 }
 
 # Extra packages
@@ -61,8 +61,8 @@ if (put $install-extra) {
                 if (put $install-package) {
                     packages-extra-new = [ $@packages-extra-new $package ]
                 }
-            }        
-            echo "Installing: " $@packages-extra-new
+            }
+            echo "Installing:" $@packages-extra-new
             breakLoop = (func:y-n-loop "Is this ok? Y/n" "Y")
             if (put $breakLoop) {
                 loop = $false
@@ -133,6 +133,16 @@ for lang $langs-to-install {
     }
 }
 
+# mpv
+high-quality-mpv = $false
+for package $packages-optional {
+    if (==s $package "mpv") {
+        high-quality-mpv = (func:y-n-loop "Install high quality mpv config? (requires a beefy GPU) y/N" "N")
+    }
+}
+
+chsh --shell /bin/elvish
+
 # Vapoursynth 
 # TODO
 
@@ -167,13 +177,10 @@ font:
 echo "Setting up Firefox"
 use ./firefox
 
-# Packages Optional Setup
-
 # mpv
 for package $packages-optional {
     if (==s $package "mpv") {
         echo "Setting up mpv"
-        high-quality-mpv = (func:y-n-loop "Install high quality mpv config? (requires a beefy GPU) y/N" "N")
         if (put $high-quality-mpv) {
             mkdir -p ~/.config/mpv
             echo 'profile=gpu-hq
@@ -186,12 +193,10 @@ tscale=oversample' > ~/.config/mpv/mpv.conf
     }
 }
 
-# Packages Extra Setup
-
 # VSCodium
-echo "Setting up vscodium"
 for package $packages-extra {
     if (==s $package "vscodium-bin") {
+        echo "Setting up vscodium"
         use ./vscodium vscode
         vscode:setup $langs-to-install
     }
@@ -201,14 +206,15 @@ for package $packages-extra {
 echo "Setting up Elvish"
 use epm
 epm:install github.com/muesli/elvish-libs
+epm:install github.com/zzamboni/elvish-completions
 mkdir -p ~/.elvish
-echo 'use github.com/muesli/elvish-libs/theme/powerline' > ~/.elvish/rc.elv
+echo 'use github.com/muesli/elvish-libs/theme/powerline
+use github.com/zzamboni/elvish-completions/git
+use github.com/zzamboni/elvish-completions/ssh
+use github.com/zzamboni/elvish-completions/cd' > ~/.elvish/rc.elv
 for lang $langs-to-install {
     if (==s $lang "node") {
         echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
 E:MANPATH=$E:HOME"/.npm-packages/share/man":(manpath)' >> ~/.elvish/rc.elv
     }
 }
-
-
-chsh --shell /bin/elvish
