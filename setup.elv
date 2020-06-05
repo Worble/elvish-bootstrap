@@ -2,9 +2,10 @@
 use ./functions/shared func
 
 # Declare Vars
-packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ]
-packages-optional = [ filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge gimp libreoffice-fresh ]
+packages-adobe-fonts = [ adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts adobe-source-han-sans-otc-fonts adobe-source-han-sans-tw-fonts ]
+packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils $@packages-adobe-fonts ]
+packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge libreoffice-fresh ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
