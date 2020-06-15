@@ -52,19 +52,22 @@ fn setup [ langs ]{
 
     # settings.json
     echo '{
-"editor.formatOnSave": true,
-"window.zoomLevel": 0,
-"terminal.integrated.fontFamily": "Space Mono for Powerline",
-"terminal.integrated.fontSize": 16,
-"editor.fontFamily": "Source Code Pro for Powerline",
-"editor.fontSize": 15,
-"editor.wordWrap": "on",
-"editor.wrappingIndent": "indent",
-"breadcrumbs.enabled": true,
-"explorer.openEditors.visible": 0,
-"extensions.ignoreRecommendations": false,
-"files.autoSave": "onWindowChange",
-"workbench.colorTheme": "Horizon Italic",
-"workbench.iconTheme": "vscode-icons"
+    "editor.formatOnSave": true,
+    "window.zoomLevel": 0,
+    "terminal.integrated.fontFamily": "Space Mono for Powerline",
+    "terminal.integrated.fontSize": 16,
+    "editor.fontFamily": "Source Code Pro for Powerline",
+    "editor.fontSize": 15,
+    "editor.wordWrap": "on",
+    "editor.wrappingIndent": "indent",
+    "breadcrumbs.enabled": true,
+    "explorer.openEditors.visible": 0,
+    "extensions.ignoreRecommendations": false,
+    "files.autoSave": "onWindowChange",
+    "workbench.colorTheme": "Horizon Italic",
+    "workbench.iconTheme": "vscode-icons",
+    "workbench.colorCustomizations": {
+        "panel.background": "#000"
+    }
 }' > ~/.config/VSCodium/User/settings.json
 }
