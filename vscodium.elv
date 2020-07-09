@@ -13,6 +13,17 @@ fn install-extension [ name ]{
 }
 
 fn setup [ langs ]{
+    # Vscdodium now defaults to https://open-vsx.org/ which is great, but the extensions we need aren't on there (yet)
+    # Revert Vscodium back to the default repository
+    newJson = (echo '{
+    "serviceUrl": "https://marketplace.visualstudio.com/_apis/public/gallery",
+    "itemUrl": "https://marketplace.visualstudio.com/items"
+}' | from-json)
+    configLocation = "/usr/share/vscodium-bin/resources/app/product.json"
+    config = (cat $configLocation | from-json)
+    config[extensionsGallery] = $newJson
+    put $config | to-json | sudo tee $configLocation > /dev/null 
+
     # Extensions
     for extension $extensions-shared {
         install-extension $extension

@@ -14,7 +14,8 @@ echo '{
         "https://addons.mozilla.org/firefox/downloads/file/3522186/latest",
         "https://addons.mozilla.org/firefox/downloads/file/3437574/latest",
         "https://addons.mozilla.org/firefox/downloads/file/2419610/latest",
-        "https://addons.mozilla.org/firefox/downloads/file/3493414/latest"
+        "https://addons.mozilla.org/firefox/downloads/file/3493414/latest",
+        "https://addons.mozilla.org/firefox/downloads/file/974448/latest",
       ]
     },
     "DisableFirefoxStudies": true,

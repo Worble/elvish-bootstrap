@@ -5,7 +5,7 @@ use ./functions/shared func
 # packages-adobe-fonts = [ adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts adobe-source-han-sans-otc-fonts adobe-source-han-sans-tw-fonts ]
 packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts-git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge libreoffice-fresh ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
