@@ -3,19 +3,32 @@ echo '{
   "policies": {
     "Extensions": {
       "Install": [
+        # epub reader
         "https://addons.mozilla.org/firefox/downloads/file/3048083/latest", 
+        # ublock origin
         "https://addons.mozilla.org/firefox/downloads/file/3521827/latest",
+        # https everywhere
         "https://addons.mozilla.org/firefox/downloads/file/3528100/latest",
+        # privacy badger
         "https://addons.mozilla.org/firefox/downloads/file/3509922/latest",
+        # keepassxc
         "https://addons.mozilla.org/firefox/downloads/file/3535304/latest",
-        "https://addons.mozilla.org/firefox/downloads/file/3519533/latest",
+        # cookie autodelete
         "https://addons.mozilla.org/firefox/downloads/file/3530747/latest",
+        # decentraleyes
         "https://addons.mozilla.org/firefox/downloads/file/3539177/latest",
+        # old reddit redirect
         "https://addons.mozilla.org/firefox/downloads/file/3522186/latest",
+        # invidition
         "https://addons.mozilla.org/firefox/downloads/file/3437574/latest",
+        # dark fox theme
         "https://addons.mozilla.org/firefox/downloads/file/2419610/latest",
+        # rss preview
         "https://addons.mozilla.org/firefox/downloads/file/3493414/latest",
-        "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
+        # play with
+        "https://addons.mozilla.org/firefox/downloads/file/974448/latest",
+        # dark reader
+        "https://addons.mozilla.org/firefox/downloads/file/3606434/latest"
       ]
     },
     "DisableFirefoxStudies": true,
