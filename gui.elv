@@ -5,7 +5,7 @@ use str
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
 packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt ]
-packages-plasma = [ wpa_supplicant plasma-meta kde-applications-meta packagekit-qt5]
+packages-plasma = [ wpa_supplicant plasma-meta kde-applications-meta packagekit-qt5 ]
 
 # Funcs
 fn setup-plasma {
@@ -36,6 +36,15 @@ fn setup-lxqt {
     func:tty-echo "Installing LXQt"
     yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
+    use ./lxqt/panel
+    use ./lxqt/config
+    use ./lxqt/session
+    use ./lxqt/notifications
+    use ./lxqt/pcmanfm
+    use ./lxqt/globalkeyshortcuts
+    use ./lxqt/autostart
+    use ./lxqt/xscreensaver
+
     error = ?(sudo systemctl stop NetworkManager)
     error = ?(sudo systemctl disable NetworkManager)
     error = ?(sudo systemctl unmask connman)
@@ -53,16 +62,7 @@ fn setup-lxqt {
     sudo systemctl daemon-reload
     sudo systemctl restart connman
 
-    connmanctl enable wifi
-
-    use ./lxqt/panel
-    use ./lxqt/config
-    use ./lxqt/session
-    use ./lxqt/notifications
-    use ./lxqt/pcmanfm
-    use ./lxqt/globalkeyshortcuts
-    use ./lxqt/autostart
-    use ./lxqt/xscreensaver
+    connmanctl enable wifi   
 }
 
 fn setup-sddm {
