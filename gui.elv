@@ -46,6 +46,7 @@ fn setup-lxqt {
     use ./lxqt/xscreensaver
     use ./lxqt/mimeapps
     use ./lxqt/redshift
+    use ./lxqt/openbox
 
     error = ?(sudo systemctl stop NetworkManager)
     error = ?(sudo systemctl disable NetworkManager)
