@@ -151,7 +151,6 @@ yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed
 
 # Powerline fonts
 temp-dir = (mktemp -d)
-cd $temp-dir
 git clone "https://github.com/powerline/fonts" $temp-dir
 bash $temp-dir/install.sh
 rm -rf $temp-dir
