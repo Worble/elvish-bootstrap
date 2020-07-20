@@ -786,5 +786,3 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
 -->
   </applications>
 </openbox_config>' > ~/.config/openbox/lxqt-rc.xml
-
-openbox --reconfigure
