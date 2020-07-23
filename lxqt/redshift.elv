@@ -4,7 +4,7 @@ echo '; Global settings for redshift
 [redshift]
 ; Set the day and night screen temperatures
 temp-day=6500
-temp-night=3500
+temp-night=3700
 
 ; Enable/Disable a smooth transition between day and night
 ; 0 will cause a direct change from day to night screen temperature.
@@ -16,7 +16,7 @@ transition=1
 ; It is also possible to use different settings for day and night
 ; since version 1.8.
 ;brightness-day=0.7
-brightness-night=0.5
+brightness-night=0.6
 ; Set the screen gamma (for all colors, or each color channel
 ; individually)
 ;gamma=0.8

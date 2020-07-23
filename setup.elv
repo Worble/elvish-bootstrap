@@ -2,8 +2,8 @@
 use ./functions/shared func
 
 # Declare Vars
-# packages-adobe-fonts = [ adobe-source-han-sans-cn-fonts adobe-source-han-sans-hk-fonts adobe-source-han-sans-jp-fonts adobe-source-han-sans-kr-fonts adobe-source-han-sans-otc-fonts adobe-source-han-sans-tw-fonts ]
-packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ]
+# packages-extra-fonts = [ ttf-recursive ]
+packages-base = [ base-devel gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
 packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
@@ -76,9 +76,9 @@ if (put $install-extra) {
 }
 
 # Bluetooth
-choose = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
-if (put $choose) {
-    packages-bluetooth = [ pulseaudio-bluetooth bluez ]
+bluetooth = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
+if (put $bluetooth) {
+    packages-bluetooth = [ pulseaudio-bluetooth bluez bluez-utils ]
     if (==s $chosen-gui "lxqt") {
         packages-bluetooth = [ $@packages-bluetooth blueman ]
     }
@@ -148,6 +148,11 @@ chsh --shell /bin/elvish
 # TODO
 
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
+
+if (put $bluetooth) {
+    sudo systemctl start bluetooth
+    sudo systemctl enable bluetooth
+}
 
 # Powerline fonts
 temp-dir = (mktemp -d)
@@ -224,4 +229,46 @@ for lang $langs-to-install {
         echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
 E:MANPATH=$E:HOME"/.npm-packages/share/man":(manpath)' >> ~/.elvish/rc.elv
     }
+}
+
+
+# NetworkManager or ConnMann
+if (==s $chosen-gui "lxqt") {
+    error = ?(sudo systemctl stop NetworkManager)
+    error = ?(sudo systemctl disable NetworkManager)
+    error = ?(sudo systemctl unmask connman)
+    error = ?(sudo systemctl unmask connman-wait-online)
+    sudo systemctl enable connman
+    sudo systemctl start connman
+    error = ?(sudo systemctl mask NetworkManager)
+    error = ?(sudo systemctl mask NetworkManager-dispatcher)
+    error = ?(sudo systemctl mask NetworkManager-wait-online)
+
+    error = ?(sudo systemctl stop wpa_supplicant)
+    error = ?(sudo systemctl mask wpa_supplicant)
+    error = ?(sudo systemctl unmask iwd)
+    sudo systemctl enable --now iwd
+    sudo systemctl daemon-reload
+    sudo systemctl restart connman
+
+    connmanctl enable wifi   
+}
+
+if (==s $chosen-gui "plasma") {
+        error = ?(sudo systemctl stop connman)
+    error = ?(sudo systemctl disable connman)
+    error = ?(sudo systemctl unmask NetworkManager)
+    error = ?(sudo systemctl unmask NetworkManager-dispatcher)
+    error = ?(sudo systemctl unmask NetworkManager-wait-online)
+    sudo systemctl enable NetworkManager
+    sudo systemctl start NetworkManager
+    error = ?(sudo systemctl mask connman)
+    error = ?(sudo systemctl mask connman-wait-online)
+
+    error = ?(sudo systemctl stop iwd)
+    error = ?(sudo systemctl mask iwd)
+    error = ?(sudo systemctl unmask wpa_supplicant)
+    sudo systemctl enable --now wpa_supplicant
+    sudo systemctl daemon-reload
+    sudo systemctl restart NetworkManager
 }
