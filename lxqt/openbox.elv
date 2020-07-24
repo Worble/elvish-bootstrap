@@ -84,7 +84,7 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
       <name>Ubuntu</name>
       <size>10</size>
       <!-- font size in points -->
-      <weight>Normal</weight>
+      <weight>Bold</weight>
       <!-- ''bold'' or ''normal'' -->
       <slant>Normal</slant>
       <!-- ''italic'' or ''normal'' -->

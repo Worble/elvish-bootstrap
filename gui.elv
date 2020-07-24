@@ -30,6 +30,7 @@ fn setup-lxqt {
     use ./lxqt/mimeapps
     use ./lxqt/redshift
     use ./lxqt/openbox
+    use ./lxqt/powermanagement
 }
 
 fn setup-sddm {

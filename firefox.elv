@@ -80,7 +80,12 @@ user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcu
 user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
 user_pref("browser.newtabpage.pinned", "");
 user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("browser.link.open_newwindow.restriction", 0);' > ~/.mozilla/firefox/$profile-name/user.js
+user_pref("browser.link.open_newwindow.restriction", 0);
+user_pref("font.name.monospace.x-western", JetBrains Mono NL);
+user_pref("font.name.sans-serif.x-western", Ubuntu);
+user_pref("browser.display.use_document_fonts", 0);
+user_pref("devtools.toolbox.host", "window");
+user_pref("devtools.toolbox.previousHost", "bottom");' > ~/.mozilla/firefox/$profile-name/user.js
 
 # updater-path = "~/.mozilla/firefox/"$profile-name"/updater.sh"
 # wget -O $updater-path https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh
