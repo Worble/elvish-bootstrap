@@ -1,3 +1,5 @@
+echo "Setting up openbox"
+
 mkdir -p ~/.config/openbox/
 mkdir -p ~/.themes
 

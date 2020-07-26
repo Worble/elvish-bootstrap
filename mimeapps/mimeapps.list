@@ -1,6 +1,4 @@
-mkdir -p ~/.config
-
-echo '[Added Associations]
+[Added Associations]
 application/x-shellscript=org.kde.kate.desktop;
 application/x-yaml=org.kde.kate.desktop;
 application/vnd.ms-publisher=org.kde.kate.desktop;
@@ -12,4 +10,4 @@ application/x-compressed-tar=org.kde.ark.desktop;
 application/x-shellscript=org.kde.kate.desktop;
 application/x-yaml=org.kde.kate.desktop;
 inode/directory=pcmanfm-qt.desktop;
-application/x-compressed-tar=org.kde.ark.desktop' > ~/.config/mimeapps.list
+application/x-compressed-tar=org.kde.ark.desktop

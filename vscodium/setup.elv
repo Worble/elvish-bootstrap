@@ -13,6 +13,8 @@ fn install-extension [ name ]{
 }
 
 fn setup [ langs ]{
+    echo "Setting up vscodium"
+
     # Vscdodium now defaults to https://open-vsx.org/ which is great, but the extensions we need aren't on there (yet)
     # Revert Vscodium back to the default repository
     newJson = (echo '{
@@ -62,23 +64,7 @@ fn setup [ langs ]{
     }
 
     # settings.json
-    echo '{
-    "editor.formatOnSave": true,
-    "window.zoomLevel": 0,
-    "terminal.integrated.fontFamily": "Space Mono for Powerline",
-    "terminal.integrated.fontSize": 18,
-    "editor.fontFamily": "Jetbrains Mono NL",
-    "editor.fontSize": 15,
-    "editor.wordWrap": "on",
-    "editor.wrappingIndent": "indent",
-    "breadcrumbs.enabled": true,
-    "explorer.openEditors.visible": 0,
-    "extensions.ignoreRecommendations": false,
-    "files.autoSave": "onWindowChange",
-    "workbench.colorTheme": "Horizon Italic",
-    "workbench.iconTheme": "vscode-icons",
-    "workbench.colorCustomizations": {
-        "panel.background": "#000"
-    }
-}' > ~/.config/VSCodium/User/settings.json
+    mkdir -p ~/.config/VSCodium/User
+    config = (dirname (src)[name])'/settings.json'
+    cp $config ~/.config/VSCodium/User/settings.json
 }

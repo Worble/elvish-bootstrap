@@ -27,8 +27,8 @@ fn setup-lxqt {
     use ./lxqt/globalkeyshortcuts
     use ./lxqt/autostart
     use ./lxqt/xscreensaver
-    use ./redshift/config
-    use ./openbox/config
+    use ./redshift/setup
+    use ./openbox/setup
     use ./lxqt/powermanagement
 }
 
