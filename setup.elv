@@ -116,7 +116,7 @@ if (put $setup-programming-langs) {
 
 for lang $langs-to-install {
     if (==s $lang "node") {
-        packages-base = [ $@packages-base nodejs yarn npm ]
+        packages-base = [ $@packages-base nodejs npm ]
         mkdir -p ~/.npm-packages
         echo 'prefix=${HOME}/.npm-packages' > ~/.npmrc        
     }

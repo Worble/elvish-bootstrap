@@ -1,24 +1,11 @@
 profile-name = (grep 'Default=' ~/.mozilla/firefox/profiles.ini | sed 's/^Default=//' | head -n 1)
 
 mkdir -p ~/.mozilla/firefox/$profile-name/chrome
-echo '#tabbrowser-tabs .tabbrowser-tab .tab-close-button { display:none!important; }' > ~/.mozilla/firefox/$profile-name/chrome/userChrome.css
+user-chrome = (dirname (src)[name])'/userChrome.css'
+cp $user-chrome ~/.mozilla/firefox/$profile-name/chrome/userChrome.css
 
-echo 'user_pref("browser.tabs.drawInTitlebar", true);
-user_pref("browser.uidensity", 1);
-user_pref("browser.urlbar.suggest.openpage", false);
-user_pref("browser.urlbar.suggest.topsites", false);
-user_pref("browser.urlbar.update1.interventions", false);
-user_pref("browser.urlbar.update1.searchTips", false);
-user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.havePinned", "");
-user_pref("browser.newtabpage.activity-stream.improvesearch.topSiteSearchShortcuts.searchEngines", "");
-user_pref("browser.newtabpage.pinned", "");
-user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
-user_pref("browser.link.open_newwindow.restriction", 0);
-user_pref("font.name.monospace.x-western", JetBrains Mono NL);
-user_pref("font.name.sans-serif.x-western", Ubuntu);
-user_pref("browser.display.use_document_fonts", 0);
-user_pref("devtools.toolbox.host", "window");
-user_pref("devtools.toolbox.previousHost", "bottom");' > ~/.mozilla/firefox/$profile-name/user.js
+user-js = (dirname (src)[name])'/user.js'
+cp $user-js ~/.mozilla/firefox/$profile-name/user.js
 
 # updater-path = "~/.mozilla/firefox/"$profile-name"/updater.sh"
 # wget -O $updater-path https://raw.githubusercontent.com/ghacksuserjs/ghacks-user.js/master/updater.sh

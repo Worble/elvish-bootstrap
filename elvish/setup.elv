@@ -8,6 +8,7 @@ fn setup [node]{
     cp $config ~/.elvish/rc.elv
     if (put node) {
         echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
-E:MANPATH=$E:HOME"/.npm-packages/share/man":(manpath)' >> ~/.elvish/rc.elv
+E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"
+' >> ~/.elvish/rc.elv
     }
 }
