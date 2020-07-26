@@ -189,7 +189,8 @@ echo "# Font configuration
 font:
   normal:
     family: Space Mono for Powerline
-    style: Normal" > ~/.config/alacritty/alacritty.yml
+    style: Normal
+  #size:16.0" > ~/.config/alacritty/alacritty.yml
 
 # Firefox
 echo "Setting up Firefox"
