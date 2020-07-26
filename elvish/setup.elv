@@ -19,4 +19,7 @@ fn setup [node]{
         echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
 E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"' >> ~/.elvish/rc.elv
     }
+    echo 'if (put ?(test -z $E:TMUX)) {
+    tmux new-session
+}' >> ~/.elvish/rc.elv
 }
