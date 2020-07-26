@@ -267,6 +267,12 @@ echo '<?xml version="1.0" encoding="UTF-8"?>
         <menu>client-menu</menu>
       </action>
     </keybind>
+    <keybind key="C-0x70">
+      <action name="Maximize"/>
+    </keybind>
+    <keybind key="C-0x75">
+      <action name="Unmaximize"/>
+    </keybind>
     <!-- Keybindings for window switching -->
     <keybind key="A-Tab">
       <action name="NextWindow">
