@@ -3,7 +3,7 @@ use ./functions/shared func
 
 # Declare Vars
 # packages-extra-fonts = [ ttf-recursive ]
-packages-base = [ base-devel hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw git powerline-fonts openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ]
+packages-base = [ base-devel hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git powerline-fonts openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
 packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
@@ -177,6 +177,7 @@ echo "Setting up UFW"
 if ?(! s== (echo (sudo ufw status)) "Status: active") {
     sudo ufw default deny
     sudo ufw allow from 192.168.0.0/24
+    sudo ufw allow qBittorrent
     sudo ufw enable
     sudo systemctl enable ufw.service
 }
