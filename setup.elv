@@ -149,6 +149,9 @@ chsh --shell /bin/elvish
 
 yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
 
+# Mimeapps
+use ./mimeapps
+
 if (put $bluetooth) {
     sudo systemctl start bluetooth
     sudo systemctl enable bluetooth
@@ -171,7 +174,9 @@ for lang $langs-to-install {
 
 # Ufw
 echo "Setting up UFW"
-if ?(! s== (echo sudo ufw status) "Status: active") {
+if ?(! s== (echo (sudo ufw status)) "Status: active") {
+    sudo ufw default deny
+    sudo ufw allow from 192.168.0.0/24
     sudo ufw enable
     sudo systemctl enable ufw.service
 }
