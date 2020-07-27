@@ -1,5 +1,6 @@
 sudo mkdir -p /usr/lib/firefox/distribution/
 
+# Removing in favour of native readers
 # epub-reader = "https://addons.mozilla.org/firefox/downloads/file/3048083/latest"
 ublock-origin = "https://addons.mozilla.org/firefox/downloads/file/3521827/latest"
 https-everywhere = "https://addons.mozilla.org/firefox/downloads/file/3528100/latest"
@@ -14,7 +15,8 @@ dark-fox-theme = "https://addons.mozilla.org/firefox/downloads/file/2419610/late
 rss-preview = "https://addons.mozilla.org/firefox/downloads/file/3493414/latest"
 play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
 dark-reader = "https://addons.mozilla.org/firefox/downloads/file/3606434/latest"
-privacy-possum = "https://addons.mozilla.org/firefox/downloads/file/3360398/latest"
+# Appears to be unmaintained, reenable if the developer comes back
+# privacy-possum = "https://addons.mozilla.org/firefox/downloads/file/3360398/latest"
 firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads/file/3610087/latest"
 temporary-containers = "https://addons.mozilla.org/firefox/downloads/file/3511233/latest"
 

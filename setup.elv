@@ -1,11 +1,10 @@
 # Bring in global funcs
 use ./functions/shared func
 
-# Declare Vars
-# packages-extra-fonts = [ ttf-recursive ]
-packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono grc tmux ]
+packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono grc tmux gnome-keyring ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
+packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin ]
+packages-extra-extra = [ libreoffice-fresh gimp inkscape krita godot-bin joplin ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
@@ -88,7 +87,7 @@ if (put $bluetooth) {
 # Japanese IME
 install-japanese-ime = (func:y-n-loop "Install Japanese IME? y/N" "N")
 if (put $install-japanese-ime) {
-    packages-base = [ $@packages-base fcitx-mozc ]
+    packages-base = [ $@packages-base fcitx-mozc fcitx-qt5 fcitx-configtool ]
 }
 
 # Development
