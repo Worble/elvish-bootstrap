@@ -19,6 +19,7 @@ dark-reader = "https://addons.mozilla.org/firefox/downloads/file/3606434/latest"
 # privacy-possum = "https://addons.mozilla.org/firefox/downloads/file/3360398/latest"
 firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads/file/3610087/latest"
 temporary-containers = "https://addons.mozilla.org/firefox/downloads/file/3511233/latest"
+feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
 
 policiesJson = (dirname (src)[name])'/policies.json'
 
