@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=redshift-qt
+Name=redshift
+Type=Application
+Version=1.0
+X-LXQt-Need-Tray=true

@@ -160,17 +160,10 @@ git config --global color.ui auto
 use ./pacman
 
 # Mimeapps
-use ./mimeapps
+use ./mimeapps/setup
 
 # Powerline fonts
 use ./powerline
-
-# Rust
-for lang $langs-to-install {
-    if (==s $lang "rust") {
-        use ./rust
-    }
-}
 
 # Ufw
 use ./ufw
@@ -179,8 +172,14 @@ use ./ufw
 use ./alacritty/setup
 
 # Firefox
-echo "Setting up Firefox"
 use ./firefox/setup
+
+# Rust
+for lang $langs-to-install {
+    if (==s $lang "rust") {
+        use ./rust
+    }
+}
 
 # mpv
 for package $packages-optional {
@@ -199,11 +198,10 @@ for package $packages-extra {
 }
 
 # Elvish
-echo "Setting up Elvish"
 elv-node = $false
 for lang $langs-to-install {
     if (==s $lang "node") {
-        $elv-node = $true
+        elv-node = $true
     }
 }
 use ./elvish/setup elv

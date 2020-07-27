@@ -1,4 +1,4 @@
-echo '# XScreenSaver Preferences File
+# XScreenSaver Preferences File
 # Written by xscreensaver-demo 5.44 for worble on Tue Apr 14 13:21:43 2020.
 # https://www.jwz.org/xscreensaver/
 
@@ -292,4 +292,4 @@ GetViewPortIsFullOfLies:False
 procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
-authWarningSlack:   20' > ~/.xscreensaver
+authWarningSlack:   20

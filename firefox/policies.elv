@@ -25,6 +25,6 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $privacy-badger $keepassxc $decentraleyes $old-reddit-redirect $invidition $dark-fox-theme $rss-preview $play-with $dark-reader $privacy-possum $firefox-multi-account-containers $temporary-containers ]
+json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $privacy-badger $keepassxc $decentraleyes $old-reddit-redirect $invidition $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null

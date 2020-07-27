@@ -19,17 +19,10 @@ fn setup-lxqt {
     func:tty-echo "Installing LXQt"
     yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
-    use ./lxqt/panel
-    use ./lxqt/config
-    use ./lxqt/session
-    use ./lxqt/notifications
-    use ./lxqt/pcmanfm
-    use ./lxqt/globalkeyshortcuts
-    use ./lxqt/autostart
-    use ./lxqt/xscreensaver
+    use ./lxqt/setup
     use ./redshift/setup
     use ./openbox/setup
-    use ./lxqt/powermanagement
+    use ./xscreensaver/setup
 }
 
 fn setup-sddm {
