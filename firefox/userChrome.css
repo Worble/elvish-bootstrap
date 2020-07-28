@@ -1,3 +1,16 @@
 #tabbrowser-tabs .tabbrowser-tab .tab-close-button {
     display: none !important;
 }
+
+/* Uncomment the below for Tree Style Tabs setup */
+/* #titlebar {
+    display: none;
+}
+
+#TabsToolbar {
+    visibility: collapse !important;
+}
+
+#sidebar-header {
+    display: none;
+} */

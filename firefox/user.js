@@ -14,3 +14,4 @@ user_pref("font.name.sans-serif.x-western", "Ubuntu");
 user_pref("browser.display.use_document_fonts", 0);
 user_pref("devtools.toolbox.host", "window");
 user_pref("devtools.toolbox.previousHost", "bottom");
+user_pref("sidebar.position_start", false);
