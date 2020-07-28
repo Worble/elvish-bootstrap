@@ -1,11 +1,11 @@
 # XScreenSaver Preferences File
-# Written by xscreensaver-demo 5.44 for worble on Tue Apr 14 13:21:43 2020.
+# Written by xscreensaver-demo 5.44 for worble on Tue Jul 28 13:36:35 2020.
 # https://www.jwz.org/xscreensaver/
 
-timeout:	0:10:00
+timeout:	0:30:00
 cycle:		0:10:00
 lock:		True
-lockTimeout:	0:15:00
+lockTimeout:	0:30:00
 passwdTimeout:	0:00:30
 visualID:	default
 installColormap:    True
@@ -293,3 +293,4 @@ procInterrupts:	True
 xinputExtensionDev: False
 overlayStderr:	True
 authWarningSlack:   20
+
