@@ -1,5 +1,5 @@
 if (put ?(test -z $E:MTM)) {
-    mtm
+    exec mtm
 } else {
     use github.com/muesli/elvish-libs/theme/powerline
     use github.com/zzamboni/elvish-completions/git
