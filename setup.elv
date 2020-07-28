@@ -1,7 +1,7 @@
 # Bring in global funcs
 use ./functions/shared func
 
-packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono grc tmux gnome-keyring reflector ]
+packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono grc tmux gnome-keyring ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
 packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin ]
 packages-extra-extra = [ libreoffice-fresh gimp inkscape krita godot-bin joplin ]
@@ -141,6 +141,12 @@ for package $packages-optional {
     }
 }
 
+reflector = (func:y-n-loop "Setup automatic reflector? (won't work on arch arm) y/N" "N")
+if (put $reflector) {
+    packages-base = [ $@packages-base reflector ]
+}
+
+
 chsh --shell /bin/elvish
 
 # Vapoursynth or Avisynth+
@@ -157,7 +163,8 @@ if (put $bluetooth) {
 git config --global color.ui auto
 
 # Pacman.conf
-use ./pacman
+use ./pacman/setup pacm
+pacm:setup $reflector
 
 # Mimeapps
 use ./mimeapps/setup
