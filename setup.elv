@@ -146,6 +146,16 @@ if (put $reflector) {
     packages-base = [ $@packages-base reflector ]
 }
 
+# See this for details https://phabricator.kde.org/T10189
+firefox-file-picker = (func:y-n-loop "Setup Firefox to use Dolphin file-picker?" "N")
+if (put $firefox-file-picker) {
+    line = "GTK_USE_PORTAL=1"
+    file = "/etc/environment"
+    if (not ?(grep -qxF $line $file)) {
+        echo $line | sudo tee -a $file > /dev/null
+    }
+    packages-base = [ $@packages-base dolphin xdg-desktop-portal xdg-desktop-portal-kde ]
+}
 
 chsh --shell /bin/elvish
 

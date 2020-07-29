@@ -4,8 +4,9 @@ use str
 
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
-packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt ]
-packages-plasma = [ wpa_supplicant plasma-meta kde-applications-meta packagekit-qt5 ]
+packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt  ffmpegthumbnailer ]
+packages-plasma = [ wpa_supplicant plasma-meta packagekit-qt5 ]
+# kde-applications-meta - this installs way too much shit we don't want or need
 
 # Funcs
 fn setup-plasma {

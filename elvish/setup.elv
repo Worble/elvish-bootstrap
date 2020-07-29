@@ -15,8 +15,9 @@ fn setup [node]{
 
     config = (dirname (src)[name])'/rc.elv'
     cp $config ~/.elvish/rc.elv
+
     if (put $node) {
-        echo 'E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH
-E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"' >> ~/.elvish/rc.elv
+        sed -i '1s|^|E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"\n|' ~/.elvish/rc.elv
+        sed -i '1s|^|E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH\n|' ~/.elvish/rc.elv
     }
 }
