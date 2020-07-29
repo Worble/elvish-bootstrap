@@ -11,6 +11,7 @@ user_pref("toolkit.legacyUserProfileCustomizations.stylesheets", true);
 user_pref("browser.link.open_newwindow.restriction", 0);
 user_pref("font.name.monospace.x-western", "JetBrains Mono NL");
 user_pref("font.name.sans-serif.x-western", "Ubuntu");
+user_pref("font.name.serif.x-western", "EB Garamond");
 user_pref("browser.display.use_document_fonts", 0);
 user_pref("devtools.toolbox.host", "window");
 user_pref("devtools.toolbox.previousHost", "bottom");
