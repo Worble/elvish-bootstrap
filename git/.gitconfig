@@ -1,6 +1,6 @@
 [color]
-	ui = auto
-	
+    ui = auto
+
 [core]
     pager = delta --diff-so-fancy
 

@@ -1,7 +1,7 @@
 # Bring in global funcs
 use ./functions/shared func
 
-packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm gnome-keyring bat procs sd dust ytop tealdeer delta ]
+packages-base = [ vi vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox ufw gufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm gnome-keyring bat procs sd dust-bin ytop-bin tealdeer delta ]
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
 packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin ]
 packages-extra-extra = [ libreoffice-fresh gimp inkscape krita godot-bin joplin ]
@@ -147,7 +147,7 @@ if (put $reflector) {
 }
 
 # See this for details https://phabricator.kde.org/T10189
-firefox-file-picker = (func:y-n-loop "Setup Firefox to use Dolphin file-picker?" "N")
+firefox-file-picker = (func:y-n-loop "Setup Firefox to use Dolphin file-picker? y/N" "N")
 if (put $firefox-file-picker) {
     line = "GTK_USE_PORTAL=1"
     file = "/etc/environment"

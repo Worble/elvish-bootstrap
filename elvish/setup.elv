@@ -19,7 +19,7 @@ fn setup [node]{
     cp $config ~/.elvish/rc.elv
 
     if (put $node) {
-        sed -i '1s|^|E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"\n|' ~/.elvish/rc.elv
-        sed -i '1s|^|E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH\n|' ~/.elvish/rc.elv
+        e:sed -i '1s|^|E:MANPATH=(manpath -q):$E:HOME"/.npm-packages/share/man"\n|' ~/.elvish/rc.elv
+        e:sed -i '1s|^|E:PATH=$E:HOME"/.npm-packages/bin:"$E:PATH\n|' ~/.elvish/rc.elv
     }
 }
