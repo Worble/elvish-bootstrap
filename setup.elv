@@ -183,7 +183,10 @@ pacm:setup $reflector
 use ./mimeapps/setup
 
 # Powerline fonts
-use ./powerline
+#use ./powerline
+
+# Nerd fonts
+use ./nerdfonts
 
 # Ufw
 use ./ufw

@@ -9,7 +9,7 @@
     "explorer.openEditors.visible": 0,
     "extensions.ignoreRecommendations": false,
     "files.autoSave": "onWindowChange",
-    "terminal.integrated.fontFamily": "Space Mono for Powerline",
+    "terminal.integrated.fontFamily": "SpaceMono Nerd Font Mono",
     "terminal.integrated.fontSize": 18,
     "vsicons.associations.files": [{
         "extensions": [

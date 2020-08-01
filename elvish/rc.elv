@@ -1,6 +1,6 @@
 use github.com/zzamboni/elvish-modules/alias
 -exports- = (alias:export)
-fn ls [@a]{ e:ls --color $@a }
+fn ls [@a]{ e:exa --icons $@a }
 fn grep [@a]{ e:rg --pretty $@a }
 fn cat [@a]{ e:bat $@a }
 fn find [@a]{ e:fd $@a }
