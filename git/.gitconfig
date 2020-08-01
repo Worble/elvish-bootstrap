@@ -1,0 +1,19 @@
+[color]
+	ui = auto
+	
+[core]
+    pager = delta --diff-so-fancy
+
+[interactive]
+    diffFilter = delta --color-only --diff-so-fancy
+
+[delta]
+    features = decorations
+    whitespace-error-style = 22 reverse
+    line-numbers = true
+    side-by-side = true
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none

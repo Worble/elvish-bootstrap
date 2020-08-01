@@ -2,13 +2,13 @@ use github.com/zzamboni/elvish-modules/alias
 -exports- = (alias:export)
 fn ls [@a]{ e:ls --color $@a }
 fn grep [@a]{ e:rg --pretty $@a }
-fn diff [@a]{ e:diff --color=auto $@a }
 fn cat [@a]{ e:bat $@a }
 fn find [@a]{ e:fd $@a }
 fn ps [@a]{ e:procs $@a }
 fn sed [@a]{ e:sd $@a }
 fn du [@a]{ e:dust $@a }
 fn top [@a]{ e:ytop $@a }
+fn diff [@a]{ e:delta --diff-so-fancy $@a }
 if (put ?(test -z $E:MTM)) {
     exec mtm
 } else {
