@@ -8,7 +8,9 @@ fn setup [node]{
     mkdir -p ~/.elvish
 
     use github.com/zzamboni/elvish-modules/alias
-    grc-execs = [ cat cvs df dig gcc ifconfig make mount mtr netstat ping ps tail traceroute wdiff blkid du dnf docker docker-machine env id ip iostat last lsattr lsblk lspci lsmod lsof getfacl getsebool ulimit uptime nmap fdisk findmnt free semanage sar ss sysctl systemctl stat showmount tcpdump tune2fs vmstat w who ]
+    
+    #grc-execs = [ cat ps du ]    
+    grc-execs = [ cvs df dig gcc ifconfig make mount mtr netstat ping tail traceroute wdiff blkid dnf docker docker-machine env id ip iostat last lsattr lsblk lspci lsmod lsof getfacl getsebool ulimit uptime nmap fdisk findmnt free semanage sar ss sysctl systemctl stat showmount tcpdump tune2fs vmstat w who ]
     for grc-exec $grc-execs {
         alias:new $grc-exec "e:grc "$grc-exec
     }
