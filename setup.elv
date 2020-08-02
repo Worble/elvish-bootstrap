@@ -172,9 +172,6 @@ if (put $bluetooth) {
     sudo systemctl enable bluetooth
 }
 
-# git
-git config --global color.ui auto
-
 # Pacman.conf
 use ./pacman/setup pacm
 pacm:setup $reflector
