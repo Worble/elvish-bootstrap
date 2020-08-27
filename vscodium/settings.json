@@ -20,9 +20,11 @@
     }],
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
     "window.zoomLevel": 0,
+    "workbench.colorTheme": "Ayu Mirage Bordered",
+    "workbench.iconTheme": "vscode-icons",
     "workbench.colorCustomizations": {
-        "panel.background": "#000"
-    },
-    "workbench.colorTheme": "Horizon Italic",
-    "workbench.iconTheme": "vscode-icons"
+        "panel.background": "#000",
+        "terminal.background": "#000",
+        "terminal.ansiBlack": "#000",
+    }
 }

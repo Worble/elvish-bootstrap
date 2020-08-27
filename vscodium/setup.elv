@@ -1,5 +1,5 @@
 # Variables
-extensions-shared = [ ms-vscode-remote.vscode-remote-extensionpack syler.sass-indented yzhang.markdown-all-in-one vscode-icons-team.vscode-icons eamodio.gitlens jolaleye.horizon-theme-vscode ]
+extensions-shared = [ ms-vscode-remote.vscode-remote-extensionpack syler.sass-indented yzhang.markdown-all-in-one vscode-icons-team.vscode-icons eamodio.gitlens teabyii.ayu ]
 extensions-csharp = [ formulahendry.dotnet-test-explorer fudge.auto-using ms-dotnettools.csharp k--kato.docomment formulahendry.dotnet-test-explorer ]
 extensions-node = [ hookyqr.beautify elmtooling.elm-ls-vscode dbaeumer.vscode-eslint eg2.vscode-npm-script christian-kohler.npm-intellisense ms-vscode.vscode-typescript-tslint-plugin ]
 extensions-java = [ vscjava.vscode-java-pack ]
