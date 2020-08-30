@@ -25,6 +25,6 @@
     "workbench.colorCustomizations": {
         "panel.background": "#000",
         "terminal.background": "#000",
-        "terminal.ansiBlack": "#000",
+        "terminal.ansiBlack": "#000"
     }
 }
