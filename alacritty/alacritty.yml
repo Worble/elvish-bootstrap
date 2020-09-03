@@ -4,4 +4,5 @@ font:
     family: SpaceMono Nerd Font Mono
     style: Normal
   #size: 16.0
-  
+window:
+  startup_mode: Maximized
