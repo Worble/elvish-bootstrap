@@ -15,6 +15,16 @@ fn setup [node]{
         alias:new $grc-exec "e:grc "$grc-exec
     }
 
+    alias:new ls "e:exa --icons --git"
+    alias:new grep "e:rg --pretty"
+    alias:new cat "e:bat"
+    alias:new find "e:fd"
+    alias:new ps "e:procs"
+    alias:new sed "e:sd"
+    alias:new du "e:dust"
+    alias:new top "e:ytop"
+    alias:new diff "e:delta --diff-so-fancy"
+
     config = (dirname (src)[name])'/rc.elv'
     cp $config ~/.elvish/rc.elv
 
