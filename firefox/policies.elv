@@ -10,7 +10,9 @@ keepassxc = "https://addons.mozilla.org/firefox/downloads/file/3535304/latest"
 # cookie-autodelete = "https://addons.mozilla.org/firefox/downloads/file/3530747/latest"
 decentraleyes = "https://addons.mozilla.org/firefox/downloads/file/3539177/latest"
 old-reddit-redirect = "https://addons.mozilla.org/firefox/downloads/file/3522186/latest"
-invidition = "https://addons.mozilla.org/firefox/downloads/file/3437574/latest"
+# Dead, use Privacy Redirect instead
+#invidition = "https://addons.mozilla.org/firefox/downloads/file/3437574/latest"
+privacy-redirect = "https://addons.mozilla.org/firefox/downloads/file/3635417/latest"
 dark-fox-theme = "https://addons.mozilla.org/firefox/downloads/file/2419610/latest"
 rss-preview = "https://addons.mozilla.org/firefox/downloads/file/3493414/latest"
 play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
@@ -21,12 +23,12 @@ firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads
 temporary-containers = "https://addons.mozilla.org/firefox/downloads/file/3511233/latest"
 feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
 # Enable this when comfortable
-# tst = "https://addons.mozilla.org/firefox/downloads/file/3611750/latest"
+tree-style-tabs = "https://addons.mozilla.org/firefox/downloads/file/3611750/latest"
 
 policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $privacy-badger $keepassxc $decentraleyes $old-reddit-redirect $invidition $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers ]
+json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $privacy-badger $keepassxc $decentraleyes $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null

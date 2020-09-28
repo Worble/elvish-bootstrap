@@ -17,3 +17,4 @@ user_pref("devtools.toolbox.host", "window");
 user_pref("devtools.toolbox.previousHost", "bottom");
 user_pref("sidebar.position_start", false);
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
+user_pref("media.hardwaremediakeys.enabled", false);
