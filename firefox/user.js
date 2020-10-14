@@ -18,3 +18,5 @@ user_pref("devtools.toolbox.previousHost", "bottom");
 user_pref("sidebar.position_start", false);
 user_pref("browser.messaging-system.whatsNewPanel.enabled", false);
 user_pref("media.hardwaremediakeys.enabled", false);
+user_pref("full-screen-api.transition-duration.enter", "0 0");
+user_pref("full-screen-api.transition-duration.leave", "0 0");
