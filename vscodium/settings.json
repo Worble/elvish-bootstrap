@@ -26,5 +26,15 @@
         "panel.background": "#000",
         "terminal.background": "#000",
         "terminal.ansiBlack": "#000"
-    }
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "explorer.compactFolders": false
 }
