@@ -21,6 +21,9 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # Using Nextcloud News instead
 #feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
 
+#Interesting Idea
+#play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
+
 ublock-origin = "https://addons.mozilla.org/firefox/downloads/file/3521827/latest"
 https-everywhere = "https://addons.mozilla.org/firefox/downloads/file/3528100/latest"
 keepassxc = "https://addons.mozilla.org/firefox/downloads/file/3535304/latest"
@@ -28,7 +31,6 @@ old-reddit-redirect = "https://addons.mozilla.org/firefox/downloads/file/3522186
 privacy-redirect = "https://addons.mozilla.org/firefox/downloads/file/3635417/latest"
 dark-fox-theme = "https://addons.mozilla.org/firefox/downloads/file/2419610/latest"
 rss-preview = "https://addons.mozilla.org/firefox/downloads/file/3493414/latest"
-play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
 dark-reader = "https://addons.mozilla.org/firefox/downloads/file/3606434/latest"
 firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads/file/3610087/latest"
 temporary-containers = "https://addons.mozilla.org/firefox/downloads/file/3511233/latest"
@@ -59,6 +61,6 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
+json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
