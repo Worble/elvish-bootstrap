@@ -44,6 +44,7 @@ twitter-original-images = "https://addons.mozilla.org/firefox/downloads/file/342
 violent-monkey = "https://addons.mozilla.org/firefox/downloads/file/3505281/latest"
 youtube-enhancer = "https://addons.mozilla.org/firefox/downloads/file/3537917/latest"
 tabliss = "https://addons.mozilla.org/firefox/downloads/file/3549950/latest"
+search-by-image = "https://addons.mozilla.org/firefox/downloads/file/3690470/latest"
 
 # From https://github.com/arkenfox/user.js/wiki/4.1-Extensions
 
@@ -58,6 +59,6 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss ]
+json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $play-with $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
