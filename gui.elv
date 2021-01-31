@@ -5,20 +5,20 @@ use str
 # Vars
 packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
 packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt  ffmpegthumbnailer ]
-packages-plasma = [ wpa_supplicant plasma-meta packagekit-qt5 ]
+packages-plasma = [ plasma-nm dolphin konsole packagekit-qt5 plasma-desktop kde-gtk-config breeze-gtk ]
 # kde-applications-meta - this installs way too much shit we don't want or need
 
 # Funcs
 fn setup-plasma {
     func:tty-echo "Installing Plasma"
-    yay -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    paru -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     # TODO: plasma customisations
 }
 
 fn setup-lxqt {
     func:tty-echo "Installing LXQt"
-    yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    paru -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     use ./lxqt/setup
     use ./redshift/setup
