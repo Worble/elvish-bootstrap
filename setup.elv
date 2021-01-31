@@ -1,12 +1,12 @@
 # Bring in global funcs
 use ./functions/shared func
 
-packages-base = [ geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager ]
-packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular fsearch-git ]
-packages-extra = [ nextcloud-client vscodium-bin baka-mplayer qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
+packages-base = [ wpa_supplicant networkmanager geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager ]
+packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular ]
+packages-extra = [ nextcloud-client vscodium-bin mpc-qt qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
 # we don't usually want these but i dont want to forget them
-packages-extra-extra = [ gimp inkscape krita godot-bin joplin etcher gufw ]
+packages-extra-extra = [ gimp inkscape krita godot-bin joplin etcher gufw baka-mplayer fsearch-git ]
 
 # Begin
 install-gui = (func:y-n-loop "Install a GUI? y/N" "N")
@@ -164,7 +164,7 @@ chsh --shell /bin/elvish
 # Vapoursynth or Avisynth+
 # TODO
 
-paru -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
+yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
 
 # Git
 use ./git/setup

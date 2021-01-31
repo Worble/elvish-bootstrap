@@ -3,22 +3,24 @@ use ./functions/shared func
 use str
 
 # Vars
-packages-shared = [ xorg-server xorg-apps sddm qt5-graphicaleffects ]
-packages-lxqt = [ lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt  ffmpegthumbnailer ]
-packages-plasma = [ plasma-nm dolphin konsole packagekit-qt5 plasma-desktop kde-gtk-config breeze-gtk ]
+packages-shared = [ sddm qt5-graphicaleffects ]
+packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt ffmpegthumbnailer networkmanager-qt ]
+packages-plasma = [ plasma-nm dolphin konsole plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam ]
+# packagekit-qt5 (for arch updates in discover)
+# flatpak (automatic integration into discover)
 # kde-applications-meta - this installs way too much shit we don't want or need
 
 # Funcs
 fn setup-plasma {
     func:tty-echo "Installing Plasma"
-    paru -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    yay -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     # TODO: plasma customisations
 }
 
 fn setup-lxqt {
     func:tty-echo "Installing LXQt"
-    paru -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     use ./lxqt/setup
     use ./redshift/setup

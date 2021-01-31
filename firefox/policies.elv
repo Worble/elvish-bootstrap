@@ -63,7 +63,7 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $https-everywhere $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
+json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $twitter-original-images $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
 put $json | to-json | sudo tee /usr/lib/firefox-developer-edition/distribution/policies.json > /dev/null

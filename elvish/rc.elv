@@ -1,5 +1,4 @@
 use github.com/zzamboni/elvish-modules/alias
--exports- = (alias:export)
 if (put ?(test -z $E:MTM)) {
     exec mtm
 } else {
