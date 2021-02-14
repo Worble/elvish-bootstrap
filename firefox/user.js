@@ -22,3 +22,4 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 user_pref("dom.security.https_only_mode", true);
+user_pref("extensions.activeThemeID", "{e7fe4ffe-f256-4f85-906d-072fdd698585}");

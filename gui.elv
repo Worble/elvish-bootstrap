@@ -4,8 +4,8 @@ use str
 
 # Vars
 packages-shared = [ sddm qt5-graphicaleffects ]
-packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme iwd redshift-qt ffmpegthumbnailer networkmanager-qt ]
-packages-plasma = [ plasma-nm dolphin konsole plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam ]
+packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst sddm-config-editor-git adwaita-icon-theme redshift-qt ffmpegthumbnailer networkmanager-qt pavucontrol ]
+packages-plasma = [ plasma-nm dolphin konsole plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam kmix ]
 # packagekit-qt5 (for arch updates in discover)
 # flatpak (automatic integration into discover)
 # kde-applications-meta - this installs way too much shit we don't want or need
@@ -36,12 +36,12 @@ fn setup-sddm {
     
     # Set Theme
     if (not ?(test -d /usr/share/sddm/themes/slice)) {
-       temp-dir = (mktemp -d)
+        temp-dir = (mktemp -d)
         cd $temp-dir
         git clone https://github.com/RadRussianRus/sddm-slice.git
-        sudo cp -r sddm-slice/slice /usr/share/sddm/themes/slice        
+        sudo cp -r sddm-slice/ /usr/share/sddm/themes/slice
         cd ~
-        rm -rf $temp-dir 
+        rm -rf $temp-dir
     } 
 
     echo "[Theme]
@@ -51,7 +51,7 @@ Current=slice" | sudo tee /etc/sddm.conf > /dev/null
 fn get-xorg-driver {
     loop = $true
     while $loop {
-        func:tty-echo "Choose XOrg video driver"
+        func:tty-echo "Choose video driver"
         drivers = [ xf86-video-amdgpu xf86-video-ati xf86-video-intel xf86-video-nouveau nvidia nvidia-390xx "None (Install Later)"]
         func:tty-echo (echo "Drivers:" $@drivers)
         input = (func:read-input "")

@@ -1,8 +1,8 @@
 # Bring in global funcs
 use ./functions/shared func
 
-packages-base = [ wpa_supplicant networkmanager geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate pulseaudio pulseaudio-alsa alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager ]
-packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular ]
+packages-base = [ iwd networkmanager geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager ]
+packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular timeshift ]
 packages-extra = [ nextcloud-client vscodium-bin mpc-qt qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
 # we don't usually want these but i dont want to forget them
@@ -76,12 +76,26 @@ if (put $install-extra) {
     packages-extra = []
 }
 
+# Pipewire
+install-pipewire = (func:y-n-loop "Replace pulseaudio with Pipewire? Y/n" "N")
+if (put $install-pipewire) {
+    packages-base = [ $@packages-base pipewire pipewire-pulse pipewire-alsa ]
+} else {
+    packages-base = [ $@packages-base pulseaudio pulseaudio-alsa ]
+}
+
 # Bluetooth
 bluetooth = (func:y-n-loop "Install bluetooth drivers? y/N" "N")
 if (put $bluetooth) {
-    packages-bluetooth = [ pulseaudio-bluetooth bluez bluez-utils ]
+    packages-bluetooth = [ bluez bluez-utils ]
+    if (not (put $install-pipewire)) {
+        packages-bluetooth = [ $@packages-bluetooth pulseaudio-bluetooth ]
+    }
     if (==s $chosen-gui "lxqt") {
         packages-bluetooth = [ $@packages-bluetooth blueman ]
+    }
+    if (==s $chosen-gui "plasma") {
+        packages-bluetooth = [ $@packages-bluetooth bluedevil ]
     }
     packages-base = [ $@packages-base $@packages-bluetooth ]
 }
