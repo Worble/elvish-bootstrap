@@ -233,6 +233,9 @@ for package $packages-extra {
     }
 }
 
+# NetworkManager
+use ./network/setup
+
 # Elvish
 elv-node = $false
 for lang $langs-to-install {
@@ -242,11 +245,3 @@ for lang $langs-to-install {
 }
 use ./elvish/setup elv
 elv:setup $elv-node 
-
-# NetworkManager or ConnMann
-use ./network/setup network
-if (==s $chosen-gui "lxqt") {
-    network:connman 
-} elif (==s $chosen-gui "plasma") {
-    network:network-manager 
-}
