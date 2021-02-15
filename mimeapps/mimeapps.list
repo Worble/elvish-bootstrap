@@ -5,9 +5,10 @@ application/vnd.ms-publisher=org.kde.kate.desktop;
 text/plain=org.kde.kate.desktop;
 application/octet-stream=org.kde.kate.desktop;
 application/x-compressed-tar=org.kde.ark.desktop;
+inode/directory=org.kde.dolphin.desktop;
 
 [Default Applications]
 application/x-shellscript=org.kde.kate.desktop;
 application/x-yaml=org.kde.kate.desktop;
-inode/directory=pcmanfm-qt.desktop;
+inode/directory=org.kde.dolphin.desktop;
 application/x-compressed-tar=org.kde.ark.desktop

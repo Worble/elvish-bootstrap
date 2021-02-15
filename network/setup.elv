@@ -1,3 +1,5 @@
+echo "Setting up network"
+
 nmconf = (dirname (src)[name])'/NetworkManager.conf'
 sudo cp $nmconf /etc/NetworkManager/NetworkManager.conf
 

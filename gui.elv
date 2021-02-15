@@ -3,9 +3,9 @@ use ./functions/shared func
 use str
 
 # Vars
-packages-shared = [ sddm qt5-graphicaleffects ]
-packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors cmst adwaita-icon-theme redshift-qt ffmpegthumbnailer networkmanager-qt pavucontrol ]
-packages-plasma = [ plasma-nm dolphin konsole plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam kmix ]
+packages-shared = [ dolphin sddm qt5-graphicaleffects ]
+packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors adwaita-icon-theme redshift-qt ffmpegthumbnailer nm-applet pavucontrol ]
+packages-plasma = [ plasma-nm plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam kmix ]
 # sddm-config-editor-git (does not currently work)
 # packagekit-qt5 (for arch updates in discover)
 # flatpak (automatic integration into discover)
@@ -96,5 +96,6 @@ fn setup {
     }
 
     setup-sddm > /dev/tty
+    balooctl enable
     return
 }
