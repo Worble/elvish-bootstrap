@@ -1,7 +1,8 @@
 # Bring in global funcs
 use ./functions/shared func
 
-packages-base = [ iwd networkmanager geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager starship ]
+packages-base = [ usbutils iwd networkmanager geoclue vim nano base-devel ripgrep hunspell hunspell-en_GB hunspell-en_US gvfs ark lrzip lzop p7zip unarchiver unrar alacritty firefox-developer-edition ufw git openssh kate alsa-utils inetutils ttf-liberation ttf-ubuntu-font-family ttf-dejavu adobe-source-han-sans-otc-fonts adobe-source-han-serif-otc-fonts ttf-jetbrains-mono ebgaramond-otf grc mtm exa bat procs sd dust bottom tealdeer git-delta partitionmanager starship ]
+
 packages-optional = [ deadbeef filelight mpv youtube-dl keepassxc octopi-notifier-qt5 okular timeshift ]
 packages-extra = [ nextcloud-client vscodium-bin qbittorrent thunderbird protonmail-bridge-bin libreoffice-fresh ]
 
