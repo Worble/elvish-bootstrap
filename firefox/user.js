@@ -22,4 +22,7 @@ user_pref("full-screen-api.transition-duration.enter", "0 0");
 user_pref("full-screen-api.transition-duration.leave", "0 0");
 user_pref("browser.ctrlTab.recentlyUsedOrder", false);
 user_pref("dom.security.https_only_mode", true);
-user_pref("extensions.activeThemeID", "{e7fe4ffe-f256-4f85-906d-072fdd698585}");
+user_pref("extensions.activeThemeID", "{758478b6-29f3-4d69-ab17-c49fe568ed80}");
+user_pref("browser.aboutConfig.showWarning", false);
+user_pref("browser.newtabpage.activity-stream.showSponsored", false);
+user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);

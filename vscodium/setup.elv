@@ -35,8 +35,8 @@ fn setup [ langs ]{
         install-extension $extension
     }
     mkdir -p ~/.config/Code/User/vsicons-custom-icons
-    config = (dirname (src)[name])'/file_type_elvish.png'
-    cp $config ~/.config/Code/User/vsicons-custom-icons/file_type_elvish.png
+    icon = (dirname (src)[name])'/file_type_elvish.png'
+    cp $icon ~/.config/Code/User/vsicons-custom-icons/file_type_elvish.png
 
     for lang $langs {
         if (==s $lang "csharp") {

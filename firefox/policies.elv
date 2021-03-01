@@ -31,7 +31,6 @@ ublock-origin = "https://addons.mozilla.org/firefox/downloads/latest/ublock-orig
 keepassxc = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
 old-reddit-redirect = "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi"
 privacy-redirect = "https://addons.mozilla.org/firefox/downloads/latest/privacy-redirect/latest.xpi"
-dark-fox-theme = "https://addons.mozilla.org/firefox/downloads/latest/privacy-redirect/latest.xpi"
 rss-preview = "https://addons.mozilla.org/firefox/downloads/latest/rsspreview/latest.xpi"
 dark-reader = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi"
 firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
@@ -49,6 +48,7 @@ violent-monkey = "https://addons.mozilla.org/firefox/downloads/latest/violentmon
 youtube-enhancer = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi"
 tabliss = "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi"
 search-by-image = "https://addons.mozilla.org/firefox/downloads/latest/search_by_image/latest.xpi"
+theme = "https://addons.mozilla.org/firefox/downloads/latest/nord-polar-night-theme/latest.xpi"
 
 # From https://github.com/arkenfox/user.js/wiki/4.1-Extensions
 
@@ -63,7 +63,7 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $dark-fox-theme $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $search-by-image ]
+json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $search-by-image $theme ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
 put $json | to-json | sudo tee /usr/lib/firefox-developer-edition/distribution/policies.json > /dev/null
