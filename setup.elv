@@ -179,7 +179,7 @@ chsh --shell /bin/elvish
 # Vapoursynth or Avisynth+
 # TODO
 
-yay -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
+paru -S $@packages-base $@packages-optional $@packages-extra --noconfirm --needed --quiet --noprogressbar
 
 # Git
 use ./git/setup
