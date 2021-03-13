@@ -1,7 +1,7 @@
 use github.com/zzamboni/elvish-modules/alias
-if (put ?(test -z $E:MTM)) {
-    exec mtm
-} else {
+#if (put ?(test -z $E:MTM)) {
+#    exec mtm
+#} else {
     # use github.com/muesli/elvish-libs/theme/powerline
     # powerline:prompt-segments = [
     #     timestamp
@@ -22,4 +22,4 @@ if (put ?(test -z $E:MTM)) {
     use github.com/zzamboni/elvish-completions/cd
     use github.com/zzamboni/elvish-completions/builtins    
     eval (starship init elvish)
-}
+#}
