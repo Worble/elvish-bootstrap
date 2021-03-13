@@ -14,14 +14,14 @@ packages-plasma = [ khotkeys plasma-nm plasma-desktop kde-gtk-config breeze-gtk 
 # Funcs
 fn setup-plasma {
     func:tty-echo "Installing Plasma"
-    paru -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    yay -S $@packages-plasma $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     # TODO: plasma customisations
 }
 
 fn setup-lxqt {
     func:tty-echo "Installing LXQt"
-    paru -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
+    yay -S $@packages-lxqt $@packages-shared --noconfirm --needed --quiet --noprogressbar
 
     use ./lxqt/setup
     use ./redshift/setup
