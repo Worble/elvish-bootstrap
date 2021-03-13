@@ -26,3 +26,6 @@ user_pref("extensions.activeThemeID", "{758478b6-29f3-4d69-ab17-c49fe568ed80}");
 user_pref("browser.aboutConfig.showWarning", false);
 user_pref("browser.newtabpage.activity-stream.showSponsored", false);
 user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
+user_pref("browser.search.suggest.enabled", false);
+user_pref("browser.urlbar.suggest.bookmark", false);
+user_pref("browser.urlbar.suggest.engines", false);
