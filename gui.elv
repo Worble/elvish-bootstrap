@@ -4,7 +4,7 @@ use str
 
 # Vars
 packages-shared = [ dolphin sddm qt5-graphicaleffects ]
-packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors redshift-qt ffmpegthumbnailer nm-applet pavucontrol breeze breeze-gtk ]
+packages-lxqt = [ xorg-server xorg-apps lxqt breeze-icons xscreensaver libpulse libstatgrab libsysstat lm_sensors redshift-qt ffmpegthumbnailer network-manager-applet pavucontrol breeze breeze-gtk ]
 packages-plasma = [ khotkeys plasma-nm plasma-desktop kde-gtk-config breeze-gtk kwalletmanager kwallet-pam kmix gwenview ]
 # sddm-config-editor-git (does not currently work)
 # packagekit-qt5 (for arch updates in discover)
