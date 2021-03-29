@@ -29,3 +29,4 @@ user_pref("browser.newtabpage.activity-stream.showSponsoredTopSites", false);
 user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.engines", false);
+user_pref("network.http.referer.defaultPolicy", 1); // Revert this when all sites support it
