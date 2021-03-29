@@ -54,6 +54,7 @@ theme = "https://addons.mozilla.org/firefox/downloads/latest/nord-polar-night-th
 
 canvas-blocker = "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
 css-exfil-protection = "https://addons.mozilla.org/firefox/downloads/latest/css-exfil-protection/latest.xpi"
+# Might not be needed after https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/ ?
 smart-referrer = "https://addons.mozilla.org/firefox/downloads/latest/smart-referer/latest.xpi"
 neat-url = "https://addons.mozilla.org/firefox/downloads/latest/neat-url/latest.xpi"
 skip-redirect = "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi"
