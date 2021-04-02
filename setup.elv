@@ -209,7 +209,7 @@ use ./ufw
 use ./alacritty/setup
 
 # Firefox
-use ./firefox/setup
+#use ./firefox/setup
 
 # Rust
 for lang $langs-to-install {
