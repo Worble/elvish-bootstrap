@@ -8,6 +8,3 @@ min_time = 10_000
 
 [directory]
 format = '[$path]($style)[$read_only]($read_only_style) '
-
-[username]
-show_always = true
