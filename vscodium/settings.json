@@ -28,13 +28,19 @@
         "terminal.ansiBlack": "#000"
     },
     "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
     },
     "[javascript]": {
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
     "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+        "editor.defaultFormatter": "esbenp.prettier-vscode",
+        "editor.codeActionsOnSave": {
+            "source.organizeImports": true
+        }
     },
     "explorer.compactFolders": false
 }
