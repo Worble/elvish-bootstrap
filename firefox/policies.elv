@@ -19,13 +19,16 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # privacy-possum = "https://addons.mozilla.org/firefox/downloads/file/3360398/latest"
 
 # Using Nextcloud News instead
-#feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
+# feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
 
-#Interesting Idea
-#play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
+# Interesting Idea
+# play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
 
 # Builtin support now
-#https-everywhere = "https://addons.mozilla.org/firefox/downloads/file/3528100/latest"
+# https-everywhere = "https://addons.mozilla.org/firefox/downloads/file/3528100/latest"
+
+# Good to know but I don't use twitter
+# twitter-original-images = "https://addons.mozilla.org/firefox/downloads/latest/twitter-gensun-view/latest.xpi"
 
 ublock-origin = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
 keepassxc = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
@@ -43,28 +46,28 @@ dont-touch-my-tabs = "https://addons.mozilla.org/firefox/downloads/latest/dont-t
 twitchtv = "https://addons.mozilla.org/firefox/downloads/latest/twitch_5/latest.xpi"
 twitch-now = "https://addons.mozilla.org/firefox/downloads/latest/twitch-now/latest.xpi"
 tab-reloader = "https://addons.mozilla.org/firefox/downloads/latest/tab-reloader/latest.xpi"
-# twitter-original-images = "https://addons.mozilla.org/firefox/downloads/latest/twitter-gensun-view/latest.xpi"
 violent-monkey = "https://addons.mozilla.org/firefox/downloads/latest/violentmonkey/latest.xpi"
 youtube-enhancer = "https://addons.mozilla.org/firefox/downloads/latest/enhancer-for-youtube/latest.xpi"
 tabliss = "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi"
-search-by-image = "https://addons.mozilla.org/firefox/downloads/latest/search_by_image/latest.xpi"
 theme = "https://addons.mozilla.org/firefox/downloads/latest/nord-polar-night-theme/latest.xpi"
+universal-bypass = "https://addons.mozilla.org/firefox/downloads/latest/universal-bypass/latest.xpi"
+google-translate = "https://addons.mozilla.org/firefox/downloads/latest/to-google-translate/latest.xpi"
 
 # From https://github.com/arkenfox/user.js/wiki/4.1-Extensions
 
 canvas-blocker = "https://addons.mozilla.org/firefox/downloads/latest/canvasblocker/latest.xpi"
 css-exfil-protection = "https://addons.mozilla.org/firefox/downloads/latest/css-exfil-protection/latest.xpi"
-# Might not be needed after https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/ ?
-smart-referrer = "https://addons.mozilla.org/firefox/downloads/latest/smart-referer/latest.xpi"
 neat-url = "https://addons.mozilla.org/firefox/downloads/latest/neat-url/latest.xpi"
 skip-redirect = "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi"
 clear-urls = "https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi"
+# Might not be needed after https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/ ?
+smart-referrer = "https://addons.mozilla.org/firefox/downloads/latest/smart-referer/latest.xpi"
 
 policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $search-by-image $theme ]
+json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $theme $universal-bypass google-translate ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
 put $json | to-json | sudo tee /usr/lib/firefox-developer-edition/distribution/policies.json > /dev/null
