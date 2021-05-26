@@ -30,6 +30,9 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # Good to know but I don't use twitter
 # twitter-original-images = "https://addons.mozilla.org/firefox/downloads/latest/twitter-gensun-view/latest.xpi"
 
+# Another translate
+# translate = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi"
+
 ublock-origin = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
 keepassxc = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
 old-reddit-redirect = "https://addons.mozilla.org/firefox/downloads/latest/old-reddit-redirect/latest.xpi"
@@ -60,6 +63,7 @@ css-exfil-protection = "https://addons.mozilla.org/firefox/downloads/latest/css-
 neat-url = "https://addons.mozilla.org/firefox/downloads/latest/neat-url/latest.xpi"
 skip-redirect = "https://addons.mozilla.org/firefox/downloads/latest/skip-redirect/latest.xpi"
 clear-urls = "https://addons.mozilla.org/firefox/downloads/latest/clearurls/latest.xpi"
+etag-stopper = "https://addons.mozilla.org/firefox/downloads/latest/etag-stoppa/latest.xpi"
 # Might not be needed after https://blog.mozilla.org/security/2021/03/22/firefox-87-trims-http-referrers-by-default-to-protect-user-privacy/ ?
 smart-referrer = "https://addons.mozilla.org/firefox/downloads/latest/smart-referer/latest.xpi"
 
@@ -67,7 +71,7 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $theme $universal-bypass google-translate ]
+json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $theme $universal-bypass $google-translate $etag-stopper ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
 put $json | to-json | sudo tee /usr/lib/firefox-developer-edition/distribution/policies.json > /dev/null
