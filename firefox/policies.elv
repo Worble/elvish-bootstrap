@@ -42,6 +42,8 @@ dark-reader = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/la
 firefox-multi-account-containers = "https://addons.mozilla.org/firefox/downloads/latest/multi-account-containers/latest.xpi"
 temporary-containers = "https://addons.mozilla.org/firefox/downloads/latest/temporary-containers/latest.xpi"
 tree-style-tabs = "https://addons.mozilla.org/firefox/downloads/latest/tree-style-tab/latest.xpi"
+# Alternative to TST
+# sideberry = "https://addons.mozilla.org/firefox/downloads/latest/sidebery/latest.xpi"
 user-agent-switcher = "https://addons.mozilla.org/firefox/downloads/latest/user-agent-string-switcher/latest.xpi"
 cookie-manager = "https://addons.mozilla.org/firefox/downloads/latest/cookie-quick-manager/latest.xpi"
 tab-saver = "https://addons.mozilla.org/firefox/downloads/latest/vyrtsev-tab-saver/latest.xpi"
