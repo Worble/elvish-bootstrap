@@ -30,3 +30,7 @@ user_pref("browser.search.suggest.enabled", false);
 user_pref("browser.urlbar.suggest.bookmark", false);
 user_pref("browser.urlbar.suggest.engines", false);
 user_pref("browser.backspace_action", 0);
+user_pref("browser.menu.showViewImageInfo", true);
+user_pref("browser.compactmode.show", true);
+user_pref("devtools.debugger.remote-enabled", true);
+user_pref("devtools.chrome.enabled", true);
