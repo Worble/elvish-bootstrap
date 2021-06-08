@@ -9,7 +9,7 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # Removing this in favour of temporary containers
 # cookie-autodelete = "https://addons.mozilla.org/firefox/downloads/file/3530747/latest"
 
-# Out of date
+# Out of date, unsure if actually beneficial
 # decentraleyes = "https://addons.mozilla.org/firefox/downloads/file/3539177/latest"
 
 # Dead, use Privacy Redirect instead
@@ -24,14 +24,13 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # Interesting Idea
 # play-with = "https://addons.mozilla.org/firefox/downloads/file/974448/latest"
 
-# Builtin support now
+# Builtin support now, still useful for android
 # https-everywhere = "https://addons.mozilla.org/firefox/downloads/file/3528100/latest"
 
 # Good to know but I don't use twitter
 # twitter-original-images = "https://addons.mozilla.org/firefox/downloads/latest/twitter-gensun-view/latest.xpi"
 
-# Another translate
-# translate = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi"
+
 
 ublock-origin = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi"
 keepassxc = "https://addons.mozilla.org/firefox/downloads/latest/keepassxc-browser/latest.xpi"
@@ -56,7 +55,10 @@ youtube-enhancer = "https://addons.mozilla.org/firefox/downloads/latest/enhancer
 tabliss = "https://addons.mozilla.org/firefox/downloads/latest/tabliss/latest.xpi"
 theme = "https://addons.mozilla.org/firefox/downloads/latest/nord-polar-night-theme/latest.xpi"
 universal-bypass = "https://addons.mozilla.org/firefox/downloads/latest/universal-bypass/latest.xpi"
+disable-webtrc = "https://addons.mozilla.org/firefox/downloads/latest/happy-bonobo-disable-webrtc/latest.xpi"
 google-translate = "https://addons.mozilla.org/firefox/downloads/latest/to-google-translate/latest.xpi"
+# Another translate, can do in-page replacement
+# translate = "https://addons.mozilla.org/firefox/downloads/latest/traduzir-paginas-web/latest.xpi"
 
 # From https://github.com/arkenfox/user.js/wiki/4.1-Extensions
 
@@ -73,7 +75,7 @@ policiesJson = (dirname (src)[name])'/policies.json'
 
 json = (cat $policiesJson | from-json)
 
-json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $theme $universal-bypass $google-translate $etag-stopper ]
+json[policies][Extensions][Install] = [ $ublock-origin $keepassxc $old-reddit-redirect $privacy-redirect $rss-preview $dark-reader $firefox-multi-account-containers $temporary-containers $tree-style-tabs $canvas-blocker $css-exfil-protection $smart-referrer $neat-url $skip-redirect $clear-urls $user-agent-switcher $cookie-manager $tab-saver $dont-touch-my-tabs $twitchtv $twitch-now $tab-reloader $violent-monkey $youtube-enhancer $tabliss $theme $universal-bypass $google-translate $etag-stopper $disable-webtrc ]
 
 put $json | to-json | sudo tee /usr/lib/firefox/distribution/policies.json > /dev/null
 put $json | to-json | sudo tee /usr/lib/firefox-developer-edition/distribution/policies.json > /dev/null
