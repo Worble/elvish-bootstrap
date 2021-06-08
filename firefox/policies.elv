@@ -18,7 +18,7 @@ sudo mkdir -p /usr/lib/firefox/distribution/
 # Appears to be unmaintained, reenable if the developer comes back
 # privacy-possum = "https://addons.mozilla.org/firefox/downloads/file/3360398/latest"
 
-# Using Nextcloud News instead
+# Using ~~Nextcloud News~~ miniflux instead
 # feedbro = "https://addons.mozilla.org/firefox/downloads/file/3611394/latest"
 
 # Interesting Idea
