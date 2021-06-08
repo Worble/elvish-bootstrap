@@ -35,4 +35,5 @@ user_pref("browser.compactmode.show", true);
 user_pref("devtools.debugger.remote-enabled", true);
 user_pref("devtools.chrome.enabled", true);
 user_pref("network.trr.custom_uri", "https://adblock.doh.mullvad.net/dns-query");
+user_pref("network.trr.uri", "https://adblock.doh.mullvad.net/dns-query");
 user_pref("network.trr.mode", 3);
