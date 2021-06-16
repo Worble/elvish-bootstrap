@@ -42,5 +42,6 @@
             "source.organizeImports": true
         }
     },
-    "explorer.compactFolders": false
+    "explorer.compactFolders": false,
+    "security.workspace.trust.enabled": false
 }
